@@ -1,0 +1,12 @@
+- Type Model
+    - static
+- Programming Model
+    - structural
+    - object oriented
+    - functional
+- Runtime
+    - compiled
+- Decisions
+    - imperative
+    - pattern matching
+- Data Structures
