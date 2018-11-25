@@ -10,13 +10,19 @@ A full Rust setup contains the following tools:
 ## Prerequisites
 
 - macOS/Linux: a linker and optionally a C compiler (`gcc` or `llvm` are common options)
-- Windows: [C++ Build Tools for Visual Studio (2013 or Later)](https://www.visualstudio.com/downloads)
+- Windows: [Microsoft Visual C++ Redistributable for Visual Studio 2017](https://www.visualstudio.com/downloads)
+	- [64 Bit](https://aka.ms/vs/15/release/VC_redist.x64.exe)
+	- [32 Bit](https://aka.ms/vs/15/release/VC_redist.x86.exe)
 
 ## macOS and Linux: Using `rustup`
+
+Open a terminal and type:
 
 ```bash
 $ curl https://sh.rustup.rs -sSf | sh 
 ```
+
+Then follow the instructions.
 
 The `curl` parameters are needed to prevent `sh` receiving any garbage, and they mean:
 
@@ -62,4 +68,16 @@ pacman (Arch Linux):
 
 ```bash
 # pacman -S rust rust-docs
+```
+
+## Windows: Using `rustup-init`
+
+1. Download `rustup-init.exe` from [win.rustup.rs](https://win.rustup.rs/)
+2. Execute the binary and follow the instructions.
+3. Take a long nap, for [the instalation takes much longer](https://github.com/rust-lang/rustup.rs/issues/763) than on macOS and Linux.
+4. Verify the installation:
+
+```cmd
+> rust --version
+rustc 1.30.1 (1433507eb 2018-11-07)
 ```
