@@ -74,7 +74,7 @@ pacman (Arch Linux):
 
 1. Download `rustup-init.exe` from [win.rustup.rs](https://win.rustup.rs/)
 2. Execute the binary and follow the instructions.
-3. Take a long nap, for [the instalation takes much longer](https://github.com/rust-lang/rustup.rs/issues/763) than on macOS and Linux.
+3. Take a long nap, for [the installation takes much longer](https://github.com/rust-lang/rustup.rs/issues/763) than on macOS and Linux.
 4. Verify the installation:
 
 ```cmd
