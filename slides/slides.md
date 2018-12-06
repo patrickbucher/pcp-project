@@ -9,7 +9,7 @@ fn main() {
     println!("- Pattern Matching");
 }
 
-// Rust ist eine Systemprogrammiersprache die 
+// Rust ist eine Systemprogrammiersprache, die 
 // blitzschnell läuft, Speicherfehler vermeidet
 // und Threadsicherheit garantiert. 
 ```
@@ -20,7 +20,7 @@ fn main() {
 - __Erscheinungsjahr:__	2010
     - erste stabile Version 2015
 - __Entwickler:__ Graydon Hoare (Mozilla) 
-- __Aktuelle Version:__ 1.30 (25. Oktober 2018)
+- __Aktuelle Version:__ 1.31 (6. Dezember 2018)
 - __Typisierung:__ stark, statisch, linear, Typinferenz
 - __Features:__ 
     - Zero-Cost-Abstraktionen, Move-Semantiken
@@ -69,7 +69,23 @@ TODO
 TODO
 
 ## Persönliches Fazit - Patrick
-TODO
+
+- intelligenter Compiler
+- gutes Tooling (`cargo`, `rustfmt`)
+- dünne Standard-Library (Abhängigkeit von Libraries)
+- teils gewöhnungsbedürftig (Syntax, Memory-Handling)
+- zwischen Rust und Go hin und her gerissen
+    - Vorteile von Rust:
+        - ausgeklügeltes Typsystem
+        - kein Garbage Collector
+        - Performance
+    - Vorteile von Go:
+        - bessere Standard-Library
+        - einfachere Syntax
+        - _noch_ besseres Tooling
+        - Google und Unix-Genies dahinter: Thompson, Pike, Kernighan (Buch)
+
+Fazit: Ich werde mich weiter mit Rust beschäftigen.
 
 ## Persönliches Fazit - Lukas
 TODO
