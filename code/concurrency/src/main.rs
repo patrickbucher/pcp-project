@@ -16,24 +16,26 @@ fn main() {
         print!("{}", millis);
         return millis;
     });
-    let last_handle: thread::JoinHandle<String> = thread::spawn(|| {
+    let last_handle: thread::JoinHandle<String> = thread::spawn(move || {
         let millis: u64 = 2000;
-        let long_lasting_result = long_lasting_handle.join();
-        let even_longer_lasting_result = even_longer_lasting_handle.join();
-        let many_millis = match long_lasting_result {
+        let many_millis = match long_lasting_handle.join() {
             Ok(millis) => millis,
-            Err(_) => panic!("Oh, noes!"),
+            Err(error) => {
+                panic!("error joining long lasting thread: {:?}", error)
+            },
         };
-        let even_more_millis = match even_longer_lasting_result {
+        let even_more_millis = match even_longer_lasting_handle.join() {
             Ok(millis) => millis,
-            Err(_) => panic!("Oh, noes!"),
+            Err(error) => {
+                panic!("error joining even longer lasting thread: {:?}", error)
+            },
         };
         sleep(millis);
         return format!("was waiting for {} ms",
                        (many_millis + even_more_millis + millis));
     });
     println!("-> Now waiting for things to happen!");
-    for _ in  0..15 {
+    for _ in  0..16 {
         sleep(500);
         print!(".");
         stdout().flush().unwrap();
