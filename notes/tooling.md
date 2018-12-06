@@ -29,3 +29,7 @@ Update dependencies:
 Show documentation for the current project in browser:
 
     cargo doc --open
+
+Install `rustfmt`:
+
+    rustup component add rustfmt
