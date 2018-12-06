@@ -1,7 +1,7 @@
+use std::io::{stdout, Write};
+use std::string::String;
 use std::thread;
 use std::time::Duration;
-use std::string::String;
-use std::io::{stdout, Write};
 
 fn main() {
     let long_lasting_handle: thread::JoinHandle<u64> = thread::spawn(|| {
@@ -20,22 +20,20 @@ fn main() {
         let millis: u64 = 2000;
         let many_millis = match long_lasting_handle.join() {
             Ok(millis) => millis,
-            Err(error) => {
-                panic!("error joining long lasting thread: {:?}", error)
-            },
+            Err(error) => panic!("error joining long lasting thread: {:?}", error),
         };
         let even_more_millis = match even_longer_lasting_handle.join() {
             Ok(millis) => millis,
-            Err(error) => {
-                panic!("error joining even longer lasting thread: {:?}", error)
-            },
+            Err(error) => panic!("error joining even longer lasting thread: {:?}", error),
         };
         sleep(millis);
-        return format!("was waiting for {} ms",
-                       (many_millis + even_more_millis + millis));
+        return format!(
+            "was waiting for {} ms",
+            (many_millis + even_more_millis + millis)
+        );
     });
     println!("-> Now waiting for things to happen!");
-    for _ in  0..16 {
+    for _ in 0..16 {
         sleep(500);
         print!(".");
         stdout().flush().unwrap();
