@@ -5,8 +5,8 @@ fn main() {
     println!("")
     println!("- Ownership");
     println!("- Traits");
-    println!("- Concurrency");
     println!("- Pattern Matching");
+    println!("- Concurrency");
 }
 
 // Rust ist eine Systemprogrammiersprache, die 
