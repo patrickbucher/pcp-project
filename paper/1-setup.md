@@ -8,28 +8,33 @@ Eine Rust-Installation beinhaltet folgende Werkzeuge:
 
 ## Voraussetzungen
 
-Unter macOS und Linux wird ein Linker benötigt und ein C-Compiler benötigt. `gcc` und `llvm` sind weit verbreitete Optionen.
-
-Für Windows wird das [Microsoft Visual C++ Redistributable for Visual Studio 2017](https://www.visualstudio.com/downloads) benötigt:
+Unter macOS und Linux wird ein Linker und ein C-Compiler benötigt. `gcc` und
+`llvm` sind weit verbreitete Optionen. Für Windows wird das [Microsoft Visual
+C++ Redistributable for Visual Studio
+2017](https://www.visualstudio.com/downloads) benötigt:
 
 - [Version für 64-Bit-Architektur](https://aka.ms/vs/15/release/VC_redist.x64.exe)
 - [Version für 32-Bit-Architektur](https://aka.ms/vs/15/release/VC_redist.x86.exe)
 
 ## macOS and Linux: Mittels `rustup`
 
-Die einfachste Variante ist die Installation mit `rustup`, wozu man folgende Befehlszeile mit der Shell ausführen muss:
+Die einfachste Variante ist die Installation mit `rustup`, wozu man folgende
+Befehlszeile mit der Shell ausführen muss:
 
 ```bash
 $ curl https://sh.rustup.rs -sSf | sh 
 ```
 
-Anschliessend kann man den Instruktionen folgen. Die `curl`-Parameters sind nötig, um zu verhindern dass `sh` Zeichen ausgaben erhält, womit es nichts anfangen kann:
+Anschliessend kann man den Instruktionen folgen. Die `curl`-Parameters sind
+nötig um zu verhindern, dass `sh` Zeichen ausgaben erhält, womit es nichts
+anfangen kann:
 
 - `-s`: silent (keine Statusmeldungen ausgeben)
 - `-S`: show errors (nur Fehler anzeigen)
 - `-f`: fail silently (bei serverseitigen Fehlern keine  Ausgabe produzieren)
 
-Damit die Umgebungsvariablen nach der Installation aktualisiert werden kann man entweder eine neue Shell öffnen oder folgende Befehlszeile ausführen:
+Damit die Umgebungsvariablen nach der Installation aktualisiert werden kann man
+entweder eine neue Shell öffnen oder folgende Befehlszeile ausführen:
 
 ```bash
 $ source $HOME/.cargo/env
@@ -46,7 +51,7 @@ $ rustdoc --version
 rustdoc 1.30.1 (1433507eb 2018-11-07)
 ```
 
-Aktualisierungen und können mit `rustup` durchgeführt werden:
+Aktualisierungen können mit `rustup` durchgeführt werden:
 
 ```bash
 $ rustup update
@@ -62,7 +67,8 @@ $ rustup self uninstall
 
 macOS mit Homebrew und viele Linux-Distributionen bieten eigene Packages für
 Rust an. Nach der Installation sollte man wie gerade beschrieben sicherstellen,
-dass zumindest die Programme `rustc`, `cargo` und `rustdoc` installiert wurden.
+dass zumindest die Programme `rustc`, `cargo` und `rustdoc` installiert worden
+sind.
 
 Homebrew (macOS):
 

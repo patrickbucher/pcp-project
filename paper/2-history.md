@@ -14,10 +14,10 @@ Phasen](https://www.youtube.com/watch?v=79PSagCD_AY) einteilen:
    Graydon Hoare daran arbeiten. Der Firefox-Browser bestand damals aus ca. 4.5
    Millionen Zeilen C++-Code, und Änderungen am Code führten oft zu Fehlern.
    Rust wurde nun mit dem Ziel weiterentwickelt, dass der Compiler menschliche
-   Fehler möglichst verhindern soll, zumindest was Memory-Management und
+   Fehler möglichst verhindern soll, gerade was Memory-Management und
    Race-Conditions bei nebenläufiger Programmierung betrifft. Zu dieser Zeit
    wurde das Typsystem stark weiterentwickelt. Viele Features vom Sprachkern
-   wurden in Libraries verschoben. Der Garbage Collector wurde nicht mehr
+   wurden in Libraries ausgelagert. Der Garbage Collector wurde nicht mehr
    benötigt.
 3. 2012-2014: Das Paketverwaltungs- und Buildwerkzeug `cargo` und die Plattform
    [Crates.io](https://crates.io/) für die Publikation von Libraries wurden
@@ -34,14 +34,14 @@ Phasen](https://www.youtube.com/watch?v=79PSagCD_AY) einteilen:
       Typsystem und funktionale Features interessieren.
 4. 2015-2016: Bei Rust gab es in den frühen Jahren oft viele nicht
    rückwärtskompatible Änderungen. Seit Version 1.0.0, die am 15. Mai 2015
-   veröffentlicht wurde, sodass die Community mit einer weitgehendst stabilen
-   Sprache auf die Weiterentwicklung der Libraries konzentrieren kann. Der
+   veröffentlicht wurde, kann sich die Community mit einer weitgehendst
+   stabilen Sprache auf die Weiterentwicklung der Libraries konzentrieren. Der
    Release-Plan sieht kleinere Veröffentlichungen alle sechs Wochen vor. Mit
    `rustfmt` soll Rust einen einheitlichen Code-Formatter erhalten, wie es Go
    mit `gofmt` sehr erfolgreich vormachte.
-5. seit 2016: Mit einem neu entwickelten mp4-Parser erhält Rust erstmals Einzug
-   in den Firefox-Browser. Die Rendering-Engine für Firefox wird neu in Rust
-   geschrieben ([Servo](https://servo.org/)). Dropbox verwendet ein
-   Dateisystem, das in Rust geschrieben ist. Mit
-   [Redox](https://www.redox-os.org/) wird ein Unix-artiges, experimentelles
+5. seit 2016: Mit einem neu entwickelten mp4-Parser hielt Rust erstmals Einzug
+   in den Firefox-Browser. Die neue Rendering-Engine für Firefox
+   ([Servo](https://servo.org/)) wird in Rust geschrieben. Dropbox verwendet
+   ein Dateisystem, das in Rust geschrieben ist. Mit
+   [Redox](https://www.redox-os.org/) wird ein experimentelles, Unix-artiges
    Betriebssystem in Rust entwickelt.

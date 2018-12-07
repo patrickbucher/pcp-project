@@ -2,12 +2,12 @@
 
 Viele Programmiersprachen verwenden `null`, um die Abwesenheit eines Wertes zu
 signalisieren. Das Konzept ist an sich sinnvoll, nur erlauben es die meisten
-Programmiersprachen, dass `null` (oder `nil`, oder `None`) verwendet werden
-kann, als ob es ein normaler Wert wäre. Dies führt zu schwerwiegenden
-Laufzeitfehlern.
+Programmiersprachen, dass `null` (oder `nil`, oder `None`) wie ein normaler
+Wert verwendet werden kann. Dies führt zu schwerwiegenden Laufzeitfehlern.
 
 Rust kennt kein `null`. Stattdessen wird die An- und Abwesenheit eines Wertes
-mit der Enumeration `Option<T>` gelöst, welche folgendermassen definiert ist:
+mit der Enumeration `Option<T>` gelöst, welche mit Javas `Optional`
+vergleichbar und folgendermassen definiert ist:
 
 ```rust
 enum Option<T> {
@@ -56,10 +56,10 @@ match divide(10, 3) {
 }
 ```
 
-`match` ist vergleichbar mit `switch` in Java und C. Im Kontext mit
-`enum`-Ausdrücken stellt der Rust-Compiler jedoch sicher, dass jede Variante in
-einem eigenen _Arm_ behandelt wird. Würde im obigen Beispiel der zweite Arm
-weggelassen, scheiterte die Kompilierung:
+`match` ist vergleichbar mit `switch` in Java. Im Kontext mit `enum`-Ausdrücken
+stellt der Rust-Compiler jedoch sicher, dass jede Variante in einem eigenen
+_Arm_ behandelt wird. Würde im obigen Beispiel der zweite Arm weggelassen,
+scheiterte die Kompilierung:
 
     match divide(10, 3) {
           ^^^^^^^^^^^^^ pattern `None` not covered
