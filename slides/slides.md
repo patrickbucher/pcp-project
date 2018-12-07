@@ -153,4 +153,14 @@ TODO
 Fazit: Ich beschäftige mich weiter mit Rust und Go ‒ und ignoriere C++.
 
 ## Persönliches Fazit - Lukas
-TODO
+- einige interessante Konzepte z.B. Ownership
+    - kann Probleme bereiten (z.B. Stack)
+- Multiplatform, Package-Manager und Build-Tool direkt eingebaut
+- "intelligenter" Compiler 
+    - erzwingt "guten" Code
+    - gibt meistens sehr gute Fehlermeldungen
+- Interessante Alternative zu C
+- für kleine CLI Tool sicher sehr gut geeignet
+- sehr lebendige Sprache (neue Versione, Website, ...)
+
+Fazit: Weiterempfehlung erteilt
