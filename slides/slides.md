@@ -68,7 +68,7 @@ impl Summary for Tweet {
 }
 ```
 
-## SP3: Pattern Matching (Motivation)
+## SP3: Pattern Matching (`Option` statt `null`)
 
 `null` ist problematisch: nicht das Konzept, aber die Implementierung.
 
@@ -79,29 +79,73 @@ enum Option<T> {
 }
 ```
 
-Was bringt das?
+Was bringt das? `Option<T>` kann nicht als Wert verwendet werden. Er muss
+entpackt werden, indem seine _Varianten_ geprüft werden.
 
-## SP3: Pattern Matching (`Option<T>`)
-
-`Option<T>` kann nicht als Wert verwendet werden. Es müssen alle _Varianten_
-geprüft werden:
+## SP3: Pattern Matching (Matching von `Option`)
 
 ```rust
-match divide(&a, &b) {
-    Option::Some(c) => println!("{}/{}={}", a, b, c),
-    Option::None => println!("{}/{} failed", a, b),
+fn divide(a: i32, b: i32) -> Option<f64> {
+    if b == 0 {
+        return None;
+    }
+    return Some(a as f64 / b as f64);
+}
+
+let result = 5.5 + divide(5, 2); // error!
+
+// correct:
+let result = 5.5 + match divide(5, 2) {
+    Some(c) => c,
+    None => 0,
 }
 ```
 
-## SP3: Pattern Matching (mächtiges `switch`/`case`)
+## SP3: Pattern Matching (Vergleiche/Sortierung)
 
 ```rust
+let secret_number = // random value
+let guess = // user input
+
 match guess.cmp(&secret_number) {
     Ordering::Less => println!("Too small!"),
     Ordering::Greater => println!("Too big!"),
     Ordering::Equal => println!("You win!"),
 }
 ```
+
+## SP3: Pattern Matching (Fälle ignorieren)
+
+Nur ein Fall von Interesse:
+
+```rust
+match guess.cmp(&secret_number) {
+    Ordering::Less => (),
+    Ordering::Greater => (),
+    Ordering::Equal => println!("You win!"),
+}
+```
+
+Vereinfachung:
+
+```rust
+match guess.cmp(&secret_number) {
+    Ordering::Equal => println!("You win!"),
+    _ => (), // "default" (last arm, matches everything)
+}
+```
+
+## SP3: Pattern Matching (`if`/`let`)
+
+Wenn nur ein Fall von Interesse ist:
+
+```rust
+if let Ordering::Equal = guess.cmp(&secret_number) {
+    println!("You win!");
+}
+```
+
+Compiler-Checks gehen verloren!
 
 ## SP4: Concurrency (Thread starten)
 
