@@ -1,0 +1,7 @@
+[package]
+name = "mutex"
+version = "0.1.0"
+authors = ["patrickbucher <patrick.bucher@stud.hslu.ch>"]
+edition = "2018"
+
+[dependencies]
