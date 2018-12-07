@@ -5,6 +5,8 @@ signalisieren. Das Konzept ist an sich sinnvoll, nur erlauben es die meisten
 Programmiersprachen, dass `null` (oder `nil`, oder `None`) wie ein normaler
 Wert verwendet werden kann. Dies führt zu schwerwiegenden Laufzeitfehlern.
 
+## `Option<T>` statt `null`
+
 Rust kennt kein `null`. Stattdessen wird die An- und Abwesenheit eines Wertes
 mit der Enumeration `Option<T>` gelöst, welche mit Javas `Optional`
 vergleichbar und folgendermassen definiert ist:
@@ -56,6 +58,8 @@ match divide(10, 3) {
 }
 ```
 
+## Erzwungene Handhabung aller Fälle
+
 `match` ist vergleichbar mit `switch` in Java. Im Kontext mit `enum`-Ausdrücken
 stellt der Rust-Compiler jedoch sicher, dass jede Variante in einem eigenen
 _Arm_ behandelt wird. Würde im obigen Beispiel der zweite Arm weggelassen,
@@ -78,9 +82,46 @@ Zahl `secret_number` verglichen:
 match guess.cmp(&secret_number) {
     Ordering::Less => println!("Too small!"),
     Ordering::Greater => println!("Too big!"),
-    Ordering::Equal=> println!("Right guess!"),
+    Ordering::Equal => println!("Right guess!"),
 }
 ```
 
 So wird wiederum sichergestellt, dass auf alle möglichen Ergebnisse reagiert
 wird. Das Weglassen eines Armes würde wiederum zu einem Kompilierfehler führen.
+
+Gibt es Fälle, auf die man im jeweiligen Kontext nicht reagieren möchte, kann
+man diese einfach dem _Einheitswert_ () zuordnen:
+
+```rust
+match guess.cmp(&secret_number) {
+    Ordering::Less => (),
+    Ordering::Greater => (),
+    Ordering::Equal => println!("Right guess!"),
+}
+```
+
+Da diese Syntax etwas umständlich ist, können Fälle, die nicht von Interesse
+sind, mit den Platzhalter `_` zusammengefasst werden. Da dieser auf alle Werte
+passt, muss er als letzter Arm aufgeführt sein:
+
+```rust
+match guess.cmp(&secret_number) {
+    Ordering::Equal => println!("Right guess!"),
+    _ => (),
+}
+```
+
+## Vereinfachung mit `if`/`let`
+
+Da bei vielen Operationen nur auf eine einzige Art von Ergebnis reagiert werden
+soll, bietet Rust eine kürzeres Konstrukt für solche Fälle an. Mit `if`/`let`
+kann der vorherige `match`-Ausdruck folgendermassen umgeschrieben werden:
+
+```rust
+if let Ordering::Equal = guess.cmp(&secret_number) {
+    println!("Right guess!");
+}
+```
+
+Der Nachteil an diese Konstrukt ist, dass der Compiler nicht prüft, ob alle
+möglichen Fälle abgedeckt werden.
