@@ -148,14 +148,17 @@ TODO
 
 ## Technisches Team-Fazit
 
-- Ownership-Konzept: grosse Hürde, aber sinnvoll
+- einige interessante Konzepte z.B. Ownership
+    - kann Probleme bereiten (z.B. Stack)
+- gutes Tooling (`cargo`, `rustfmt`)
+- "intelligenter" Compiler 
+    - erzwingt "guten" Code
+    - gibt meistens sehr gute Fehlermeldungen
+- dünne Standard Library (Abhängigkeit von Libraries)
+- teils gewöhnungsbedürftig (Syntax, Memory-Handling)
 
 ## Persönliches Fazit - Patrick
 
-- intelligenter Compiler
-- gutes Tooling (`cargo`, `rustfmt`)
-- dünne Standard Library (Abhängigkeit von Libraries)
-- teils gewöhnungsbedürftig (Syntax, Memory-Handling)
 - zwischen Rust und Go hin und her gerissen
     - Vorteile von Rust (gegenüber Go):
         - ausgeklügeltes Typsystem (Generics)
@@ -171,13 +174,10 @@ TODO
 Fazit: Ich beschäftige mich weiter mit Rust und Go ‒ und ignoriere C++.
 
 ## Persönliches Fazit - Lukas
-- einige interessante Konzepte z.B. Ownership
-    - kann Probleme bereiten (z.B. Stack)
-- Multiplatform, Package-Manager und Build-Tool direkt eingebaut
-- "intelligenter" Compiler 
-    - erzwingt "guten" Code
-    - gibt meistens sehr gute Fehlermeldungen
+
+- Ownership ist nützlich, aber gibt Probleme
 - Interessante Alternative zu C
+- gute Compiler-Fehlermledungen bringen sehr viel
 - für kleine CLI Tool sicher sehr gut geeignet
 - sehr lebendige Sprache (neue Versione, Website, ...)
 
