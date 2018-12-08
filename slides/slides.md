@@ -145,7 +145,9 @@ if let Ordering::Equal = guess.cmp(&secret_number) {
 }
 ```
 
-Compiler-Checks gehen verloren!
+Vorteil: Weniger Code.
+
+Nachteil: Compiler-Checks gehen verloren.
 
 ## SP4: Concurrency (Thread starten)
 
