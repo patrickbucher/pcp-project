@@ -235,6 +235,7 @@ for increment in rx { // consume channel
     - gibt meistens sehr gute Fehlermeldungen aus
 - dünne Standard Library (Abhängigkeit von externen Libraries)
 - teils gewöhnungsbedürftig (Syntax, Memory-Handling)
+    - «Learning by Doing» aussichtslos
 - Fortschritt durch Einschränkung: neues Memory-Paradigma
     - freischwebende Referenzen als `goto` des 21. Jahrunderts?
 
