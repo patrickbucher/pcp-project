@@ -186,11 +186,36 @@ fn main() {
 
 ## SP4: Concurrency (Shared Sate: `Mutex`)
 
-TODO
+```rust
+let counter = Arc::new(Mutex::new(0)); // atomic counter
+
+thread::spawn(move || {
+    {
+        let mut c = counter.lock().unwrap();
+        *c += 1;
+    } // implicit unlock at block's end
+    // do something else
+});
+```
 
 ## SP4: Concurrency (Message Passing: `Channel`)
 
-TODO
+```rust
+let (tx, rx) = mpsc::channel();
+let mut counter = 0;
+
+// copy for (and before!) every thread
+let tx_copy = mpsc::Sender::clone(&tx);
+
+tx_copy.send(1).unwrap(); // write to channel
+
+drop(tx_copy); // for every copy
+drop(tx); // for the original
+
+for increment in rx { // consume channel
+    counter += increment;
+}
+```
 
 ## Technisches Team-Fazit
 
@@ -202,20 +227,22 @@ TODO
     - gibt meistens sehr gute Fehlermeldungen
 - dünne Standard Library (Abhängigkeit von Libraries)
 - teils gewöhnungsbedürftig (Syntax, Memory-Handling)
+- Fortschritt durch Einschränkung: neues Memory-Paradigma
 
 ## Persönliches Fazit - Patrick
 
-- zwischen Rust und Go hin und her gerissen
-    - Vorteile von Rust (gegenüber Go):
-        - ausgeklügeltes Typsystem (Generics)
-        - kein Garbage Collector (Performance, Echtzeit-Anwendungen)
-        - kein `null`/`nil`
-        - «funktionaler»
-    - Vorteile von Go (gegenüber Rust):
-        - mächtigere Standard Library
-        - schönere, einfachere Syntax
-        - _noch_ besseres Tooling
-        - Google und Unix-Genies dahinter: Thompson, Pike, Kernighan (Buch)
+zwischen Rust und Go hin und her gerissen
+
+- Vorteile von Rust (gegenüber Go):
+    - ausgeklügeltes Typsystem (Generics)
+    - kein Garbage Collector (Performance, Echtzeit-Anwendungen)
+    - kein `null`/`nil`
+    - «funktionaler»
+- Vorteile von Go (gegenüber Rust):
+    - mächtigere Standard Library
+    - schönere, einfachere Syntax
+    - _noch_ besseres Tooling
+    - Google und Unix-Genies dahinter: Thompson, Pike, Kernighan (Buch)
 
 Fazit: Ich beschäftige mich weiter mit Rust und Go ‒ und ignoriere C++.
 
