@@ -3,8 +3,8 @@ use std::thread;
 use std::time::Duration;
 
 fn main() {
-    let mut wasted_days = 0;
     let (tx, rx) = mpsc::channel();
+    let mut wasted_days = 0;
 
     for s in 0..3 {
         let tx_copy = mpsc::Sender::clone(&tx);

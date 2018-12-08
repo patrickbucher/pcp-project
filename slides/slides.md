@@ -1,3 +1,8 @@
+---
+title: Rust
+author: Lukas Arnold & Patrick Bucher
+---
+
 ```rust
 fn main() {
     println!("Rust");
@@ -15,8 +20,8 @@ fn main() {
 ```
 
 ## Was ist Rust?
-- __Paradigma:__ Multiparadigmen
-    - (generisch, nebenläufig, funktional, imperativ, strukturiert)
+- __Paradigma:__ mehrere Paradigmen
+    - generisch, nebenläufig, funktional, imperativ, strukturiert, objektorientiert
 - __Erscheinungsjahr:__	2010
     - erste stabile Version 2015
 - __Entwickler:__ Graydon Hoare (Mozilla) 
@@ -30,12 +35,12 @@ fn main() {
 
 ## Geschichte von Rust
 
-- `2006..2010`: Privates Projekt vom Mozilla-Mitarbeiter Graydon Hoare
-- `2010..2012`: Mozilla nimmt Rust unter seine Obhut
+- __2006-2010__: Privates Projekt vom Mozilla-Mitarbeiter Graydon Hoare
+- __2010-2012__: Mozilla nimmt Rust unter seine Obhut
     - Firefox: 4.5M Zeilen C++
-- `2012..2014`: Einbindung der Community, Weggang von Graydon Hoare
-- `2014..2016`: Stabilisierung (Version 1.0.0), Fokus auf Libraries
-- `2016..2018`: Produktiveinsatz (Servo, Dropbox), Redox, Version 1.31
+- __2012-2014__: Einbindung der Community, Weggang von Graydon Hoare
+- __2014-2016__: Stabilisierung (Version 1.0.0), Fokus auf Libraries
+- __2016-2018__: Produktiveinsatz (Servo, Dropbox), Redox, Version 1.31
 
 ## SP1: Ownership-Konzept
 ```rust
@@ -178,9 +183,11 @@ fn main() {
     });
     println!("Wait for it...");
     match handle.join() {
-        Result::Ok(v) => println!("the answer: {}", v),
-        Result::Err(e) => panic!("error: {:?}", e),
+        Result::Ok(v) => println!("{}", v),
+        Result::Err(e) => panic!(e),
     }
+    // same, but shorter:
+    println!("{}", handle.join().unwrap());
 }
 ```
 
@@ -189,9 +196,10 @@ fn main() {
 ```rust
 let counter = Arc::new(Mutex::new(0)); // atomic counter
 
+let counter_copy = Arc::clone(&counter);
 thread::spawn(move || {
     {
-        let mut c = counter.lock().unwrap();
+        let mut c = counter_copy.lock().unwrap();
         *c += 1;
     } // implicit unlock at block's end
     // do something else
@@ -219,19 +227,20 @@ for increment in rx { // consume channel
 
 ## Technisches Team-Fazit
 
-- einige interessante Konzepte z.B. Ownership
-    - kann Probleme bereiten (z.B. Stack)
+- einige interessante Konzepte, z.B. Ownership
+    - kann Probleme bereiten (siehe Stack)
 - gutes Tooling (`cargo`, `rustfmt`)
-- "intelligenter" Compiler 
-    - erzwingt "guten" Code
-    - gibt meistens sehr gute Fehlermeldungen
-- dünne Standard Library (Abhängigkeit von Libraries)
+- «intelligenter» Compiler 
+    - erzwingt «guten» Code
+    - gibt meistens sehr gute Fehlermeldungen aus
+- dünne Standard Library (Abhängigkeit von externen Libraries)
 - teils gewöhnungsbedürftig (Syntax, Memory-Handling)
 - Fortschritt durch Einschränkung: neues Memory-Paradigma
+    - freischwebende Referenzen als `goto` des 21. Jahrunderts?
 
 ## Persönliches Fazit - Patrick
 
-zwischen Rust und Go hin und her gerissen
+zwischen Rust und Go hin- und hergerissen
 
 - Vorteile von Rust (gegenüber Go):
     - ausgeklügeltes Typsystem (Generics)
