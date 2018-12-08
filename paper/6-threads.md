@@ -46,3 +46,89 @@ match handle.join() {
 Der zurückgegebene Wert wird in eine zusätzliche String-Nachricht verpackt
 ausgegeben. Im Fehlerfall wird das Problem mit `panic!` weiter nach oben
 delegiert ‒ vergleichbar mit `throw` in Java.
+
+Auf der Basis von Threads unterstützt Rust verschiedene Concurrency-Modelle:
+Shared State und Message Passing.
+
+## Shared State mit Mutex
+
+Bei Shared-State-Concurrency greifen mehrere Threads wechselseitig auf
+gemeinsame Speicherbereiche zu. Mittels pessimistischem Locking via Mutex wird
+sichergestellt, dass sich die einzelnen Threads dabei nicht in die Quere
+kommen. Möchte man etwa einen Zähler von mehreren Threads ohne hochzählen
+lassen, bietet Rust dafür einen atomaren Zähler (`Arc`: atomic reference
+counter). Dieser wird mit einem `Mutex` ausgestattet, der wiederum einen
+bestimmten Wert schützt:
+
+```rust
+let counter = Arc::new(Mutex::new(0));
+```
+
+Ein Thread kann den Zähler nun folgendermassen erhöhen:
+
+```rust
+thread::spawn(move || {
+    // do something before
+    {
+        let mut c = counter.lock().unwrap();
+        *c += 1;
+    }
+    // do something else afterwards
+});
+```
+
+Hier wird `move` benötigt, damit der Thread auf den Counter zugreifen kann.
+Dieser bzw. dessen `Mutex` wird per `lock` gesperrt. (Die Methode `unwrap()`
+würde eine allfällige `panic` weitergeben und dabei den Rückgabewert von
+`lock()` verwerfen, was kompakter als ein `match`-Konstrukt ist.) Nach der
+Erhöhung des Zählers wird der `Mutex` _nicht_ explizit, sondern implizit am
+Blockende freigegeben. Aus diesem Grund wurde hier ein zusätzlicher innerer
+Block eingeschoben. Würde der Thread im gleichen Block nach der Erhöhung des
+Zählers noch weitere Arbeit ausführen, bliebe die Sperre solange erhalten.
+
+Das Codebeispiel `mutex.rs` zeigt eine beispielhafte Anwendung.
+
+## Message Passing mit Channels
+
+Eine Alternative zur fehleranfälligen Manipulation geteilter Speicherbereiche
+ist das Message Passing, wobei mehrere Threads über Channels Informationen
+miteinander austauschen. Das Prinzip ist mit Unix-Pipes vergleichbar, und die
+Rust-Implementierung ist von Go inspiriert. (Die Go-Entwickler beziehen sich
+dabei auf Tony Hoares _Communicating Sequential Processes_. Die andere bekannte
+Erfindung von Tony Hoare ‒ `null` ‒ findet sich dabei auch in Go wieder, jedoch
+nicht in Rust.)
+
+Eine mögliche Channel-Implementierung in Rust ist das Modul `mpsc` (Multi
+Producer, Single Consumer), das auf einer FIFO-Queue basiert. Channels haben
+zwei Teile, einen Transmitter (Sender) und einen Receiver, welche man bei der
+Erstellung eines Channels als Tupel erhält und idiomatisch mit `tx`
+(Transmitter) und `rx` (Receiver) bezeichnet:
+
+```rust
+let (tx, rx) = mpsc::channel();
+```
+
+Jeder Thread muss seine eigene Kopie vom Transmitter anlegen, damit er auf den
+Channel schreiben kann:
+
+```rust
+let tx_copy = mpsc::Sender::clone(&tx);
+tx_copy.send(1).unwrap();
+```
+
+Im Hauptthread (oder einem beliebigen anderen Thread) kann der Channel über
+eine Iteration konsumiert werden:
+
+```rust
+for messages in rx {
+    counter += message; // getting increments from threads
+}
+```
+
+Die Schleife läuft solange, bis alle Transmitter geschlossen sind. Dies
+geschieht explizit: in jedem Thread mit `drop(tx_copy)` bzw. im Hauptthread
+mittels `drop(tx)`.
+
+Das Codebeispiel `chans.rs` implementiert das semantisch gleiche Programm wie
+`mutex.rs`, verwendet dazu jedoch einen Channel anstelle eines Mutexes. Die
+Implementierung mit dem Channel ist dabei etwas kürzer und eleganter.
