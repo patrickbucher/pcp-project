@@ -1,4 +1,4 @@
-PDFPARAMS=-s -t beamer --pdf-engine=xelatex -V lang=de -V urlcolor=blue -V linkcolor=blue -V theme:metropolis
+PDFPARAMS=-s -t beamer --pdf-engine=xelatex -V lang=de -V urlcolor=blue -V linkcolor=blue -V theme:metropolis -V aspectratio:169
 FONTS=-V mainfont='Fira Sans' -V sansfont='Fira Sans' -V monofont='Fira Code'
 DATE=-V date="`date +'%d.%m.%Y'`"
 
