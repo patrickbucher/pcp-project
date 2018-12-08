@@ -5,7 +5,7 @@ Rust bietet einige sehr interessante Konzepte wie zum Beispiel Ownership und Tra
 
 Das Pattern Matching ist ein mächtiger Mechanismus zur Behandlung unterschiedlicher Fälle. Verglichen mit dem Ownership-Konzept lässt einem der Compiler hier aber mehr Freiheiten. Das Concurrency-Model von Rust schafft es, Low-Level-Threads mit High-Level-APIs zu kombinieren. Nebenläufiger Code lässt sich effizient _und_ schön implementieren.
 
-Das gesamte Tooling für die Sprache ist sehr gut und der Compiler ist ziemlich intelligent. Die Fehlermeldung des Compiler sind in der allermeisten Fällen sehr nützlich un beschreiben das Problem sehr genau. Manchmal wird sogar ein Vorschlag angezeigt wie man es machen sollt. Dadurch entsteht meistens recht guter Code.
+Das gesamte Tooling für die Sprache ist sehr gut, und der Compiler ist ziemlich intelligent. Die Fehlermeldung des Compiler sind in der allermeisten Fällen sehr nützlich und beschreiben das Problem sehr genau. Manchmal wird sogar ein Vorschlag angezeigt, wie man es machen soll. Dadurch entsteht meistens recht guter Code.
 
 Robert C. Martin vertritt die These, dass sich neue Programmierparadigmen dadurch auszeichnen, dass sie bestehende Paradigmen _einschränken_. (Strukturierte Programmierung: kein `goto`; Objektorientierte Programmierung: Einschränkung von Funktionszeigern; Funktionale Programmierung: Einschränkung von Zustandsänderungen.) Rust überträgt die Einschränkung von Zustandsänderungen (und Datenzugriff) auf die strukturierte und parallele Programmierung ‒ und eliminiert so eine ganze Fehlerklasse (Race Conditions).
 
