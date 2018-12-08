@@ -26,7 +26,7 @@ $ curl https://sh.rustup.rs -sSf | sh
 ```
 
 Anschliessend kann man den Instruktionen folgen. Die `curl`-Parameters sind
-nötig um zu verhindern, dass `sh` Zeichen ausgaben erhält, womit es nichts
+nötig um zu verhindern, dass `sh` Ausgaben erhält, mit denen es nichts
 anfangen kann:
 
 - `-s`: silent (keine Statusmeldungen ausgeben)
