@@ -29,7 +29,7 @@ thread::spawn(move || {
 ```
 
 Auf die Abarbeitung vom Thread kann mit der Methode `join()` von `handle`
-gewartet werden. Diese Methode gibt auch sogleich den Wert zurück, der von der
+gewartet werden. Diese Methode gibt sogleich den Wert zurück, der von der
 anonymen Thread-Funktion zurückgegeben wird. Dieser wird allerdings nicht
 direkt, sondern in ein `Result<T>` verpackt zurückgegeben. Ein `Result<T>` ist
 vergleichbar mit einer `Option<T>`, mit dem Unterschied, dass die Varianten
@@ -55,10 +55,10 @@ Shared State und Message Passing.
 Bei Shared-State-Concurrency greifen mehrere Threads wechselseitig auf
 gemeinsame Speicherbereiche zu. Mittels pessimistischem Locking via Mutex wird
 sichergestellt, dass sich die einzelnen Threads dabei nicht in die Quere
-kommen. Möchte man etwa einen Zähler von mehreren Threads ohne hochzählen
-lassen, bietet Rust dafür einen atomaren Zähler (`Arc`: atomic reference
-counter). Dieser wird mit einem `Mutex` ausgestattet, der wiederum einen
-bestimmten Wert schützt:
+kommen. Möchte man etwa einen Zähler von mehreren Threads hochzählen lassen,
+bietet Rust dafür einen atomaren Zähler (`Arc`: atomic reference counter).
+Dieser wird mit einem `Mutex` ausgestattet, der wiederum einen Variable
+schützt, die hier als Integer-Variable mit dem Wert `0` angegeben wird:
 
 ```rust
 let counter = Arc::new(Mutex::new(0));
@@ -78,7 +78,7 @@ thread::spawn(move || {
 ```
 
 Hier wird `move` benötigt, damit der Thread auf den Counter zugreifen kann.
-Dieser bzw. dessen `Mutex` wird per `lock` gesperrt. (Die Methode `unwrap()`
+Dieser bzw. dessen `Mutex` wird per `lock()` gesperrt. (Die Methode `unwrap()`
 würde eine allfällige `panic` weitergeben und dabei den Rückgabewert von
 `lock()` verwerfen, was kompakter als ein `match`-Konstrukt ist.) Nach der
 Erhöhung des Zählers wird der `Mutex` _nicht_ explizit, sondern implizit am
@@ -92,7 +92,7 @@ Das Codebeispiel `mutex.rs` zeigt eine beispielhafte Anwendung.
 
 Eine Alternative zur fehleranfälligen Manipulation geteilter Speicherbereiche
 ist das Message Passing, wobei mehrere Threads über Channels Informationen
-miteinander austauschen. Das Prinzip ist mit Unix-Pipes vergleichbar, und die
+untereinander austauschen. Das Prinzip ist mit Unix-Pipes vergleichbar, und die
 Rust-Implementierung ist von Go inspiriert. (Die Go-Entwickler beziehen sich
 dabei auf Tony Hoares _Communicating Sequential Processes_. Die andere bekannte
 Erfindung von Tony Hoare ‒ `null` ‒ findet sich dabei auch in Go wieder, jedoch
