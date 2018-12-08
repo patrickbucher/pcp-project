@@ -50,7 +50,7 @@ fn calculate_length(s: String) -> usize {
 }
 ```
 
-## SP2: Traits
+## SP2: Traits (Interface)
 ```rust
 pub trait Summary {
     fn summarize(&self) -> String;
@@ -65,6 +65,24 @@ impl Summary for Tweet {
     fn summarize(&self) -> String {
         format!("{}", self.username)
     }
+}
+```
+
+## SP2: Traits (Extension)
+```rust
+pub trait Hello {
+    fn hello(&self);
+}
+
+impl Hello for String {
+    fn hello(&self) {
+        println!("Hello");
+    }
+}
+
+fn main() {
+    let s = String::from("World!");
+    s.hello();
 }
 ```
 
