@@ -50,7 +50,7 @@ fn calculate_length(s: String) -> usize {
 }
 ```
 
-## SP2: Traits
+## SP2: Traits (Interface)
 ```rust
 pub trait Summary {
     fn summarize(&self) -> String;
@@ -65,6 +65,24 @@ impl Summary for Tweet {
     fn summarize(&self) -> String {
         format!("{}", self.username)
     }
+}
+```
+
+## SP2: Traits (Extension)
+```rust
+pub trait Hello {
+    fn hello(&self);
+}
+
+impl Hello for String {
+    fn hello(&self) {
+        println!("Hello");
+    }
+}
+
+fn main() {
+    let s = String::from("World!");
+    s.hello();
 }
 ```
 
@@ -176,14 +194,17 @@ TODO
 
 ## Technisches Team-Fazit
 
-- Ownership-Konzept: grosse Hürde, aber sinnvoll
+- einige interessante Konzepte z.B. Ownership
+    - kann Probleme bereiten (z.B. Stack)
+- gutes Tooling (`cargo`, `rustfmt`)
+- "intelligenter" Compiler 
+    - erzwingt "guten" Code
+    - gibt meistens sehr gute Fehlermeldungen
+- dünne Standard Library (Abhängigkeit von Libraries)
+- teils gewöhnungsbedürftig (Syntax, Memory-Handling)
 
 ## Persönliches Fazit - Patrick
 
-- intelligenter Compiler
-- gutes Tooling (`cargo`, `rustfmt`)
-- dünne Standard Library (Abhängigkeit von Libraries)
-- teils gewöhnungsbedürftig (Syntax, Memory-Handling)
 - zwischen Rust und Go hin und her gerissen
     - Vorteile von Rust (gegenüber Go):
         - ausgeklügeltes Typsystem (Generics)
@@ -199,13 +220,10 @@ TODO
 Fazit: Ich beschäftige mich weiter mit Rust und Go ‒ und ignoriere C++.
 
 ## Persönliches Fazit - Lukas
-- einige interessante Konzepte z.B. Ownership
-    - kann Probleme bereiten (z.B. Stack)
-- Multiplatform, Package-Manager und Build-Tool direkt eingebaut
-- "intelligenter" Compiler 
-    - erzwingt "guten" Code
-    - gibt meistens sehr gute Fehlermeldungen
+
+- Ownership ist nützlich, aber gibt Probleme
 - Interessante Alternative zu C
+- gute Compiler-Fehlermledungen bringen sehr viel
 - für kleine CLI Tool sicher sehr gut geeignet
 - sehr lebendige Sprache (neue Versione, Website, ...)
 
