@@ -40,7 +40,7 @@ fn main() {
     - Firefox: 4.5M Zeilen C++
 - __2012-2014__: Einbindung der Community, Weggang von Graydon Hoare
 - __2014-2016__: Stabilisierung (Version 1.0.0), Fokus auf Libraries
-- __2016-2018__: Produktiveinsatz (Servo, Dropbox), Redox, Version 1.31
+- __2016-2018__: Produktiveinsatz (Stylo, Dropbox), Servo, Redox, Version 1.31
 
 ## SP1: Ownership-Konzept
 ```rust

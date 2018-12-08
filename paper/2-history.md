@@ -32,15 +32,16 @@ Phasen](https://www.youtube.com/watch?v=79PSagCD_AY) einteilen:
     - Funktionale Programmiersprachen: Programmierer, denen ein gutes Typsystem
       und funktionale Features wichtig sind.
 4. 2015-2016: Bei Rust gab es in den frühen Jahren oft viele nicht
-rückwärtskompatible Änderungen. Seit Version 1.0.0, die am 15. Mai 2015
-veröffentlicht wird, kann sich die Community mit einer weitgehendst stabilen
-Sprache auf die Weiterentwicklung der Libraries konzentrieren. Der Release-Plan
-sieht kleinere Veröffentlichungen alle sechs Wochen vor. Mit `rustfmt` soll
-Rust einen einheitlichen Code-Formatter erhalten, wie es Go mit `gofmt` sehr
-erfolgreich vormachte.
+   rückwärtskompatible Änderungen. Seit Version 1.0.0, die am 15. Mai 2015
+   veröffentlicht wird, kann sich die Community mit einer weitgehendst stabilen
+   Sprache auf die Weiterentwicklung der Libraries konzentrieren. Der
+   Release-Plan sieht kleinere Veröffentlichungen alle sechs Wochen vor. Mit
+   `rustfmt` soll Rust einen einheitlichen Code-Formatter erhalten, wie es Go
+   mit `gofmt` sehr erfolgreich vormachte.
 5. seit 2016: Mit einem neu entwickelten mp4-Parser hielt Rust erstmals Einzug
-in den Firefox-Browser. Die neue Rendering-Engine für Firefox
-([Servo](https://servo.org/)) wird in Rust geschrieben. Dropbox verwendet ein
-Dateisystem, das in Rust geschrieben ist. Mit
-[Redox](https://www.redox-os.org/) wird ein experimentelles, Unix-artiges
-Betriebssystem in Rust entwickelt.
+   in den Firefox-Browser. Die neue CSS-Engine für Firefox
+   [Stylo](https://wiki.mozilla.org/Quantum/Stylo) ist in Rust geschrieben. Sie
+   ist ein Teil der Rendering-Engine [Servo](https://servo.org/), die ebenfalls
+   in Rust entwickelt wird. Dropbox verwendet Rust für das Dateisystem. Mit
+   [Redox](https://www.redox-os.org/) wird ein experimentelles, Unix-artiges
+   Betriebssystem in Rust entwickelt.
