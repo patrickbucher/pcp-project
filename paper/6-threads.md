@@ -87,7 +87,7 @@ Block eingeschoben. Würde der Thread im gleichen Block nach der Erhöhung des
 Zählers noch weitere Arbeit ausführen, bliebe die Sperre solange
 aufrechterhalten.
 
-Das Codebeispiel `mutex.rs` zeigt eine beispielhafte Anwendung.
+Das Codebeispiel `mutex` zeigt eine beispielhafte Anwendung.
 
 ## Message Passing mit Channels
 
@@ -130,6 +130,7 @@ Die Schleife läuft solange, bis alle Transmitter geschlossen sind. Dies
 geschieht explizit: in jedem Thread mit `drop(tx_copy)` bzw. im Hauptthread
 mittels `drop(tx)`.
 
-Das Codebeispiel `chans.rs` implementiert das semantisch gleiche Programm wie
-`mutex.rs`, verwendet dazu jedoch einen Channel anstelle eines Mutexes. Die
-Implementierung mit dem Channel ist dabei etwas kürzer und eleganter.
+Das Codebeispiel `chans` implementiert das semantisch gleiche Programm wie
+das Beispiel `mutex`, verwendet dazu jedoch einen Channel anstelle eines
+Mutexes. Die Implementierung mit dem Channel ist dabei etwas kürzer und
+eleganter.

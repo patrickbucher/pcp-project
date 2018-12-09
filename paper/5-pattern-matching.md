@@ -59,6 +59,9 @@ match divide(10, 3) {
 }
 ```
 
+Das Codebeispiel `pattern-matching` demonstriert eine weitere Verwendung von
+`Option<T>`.
+
 ## Erzwungene Handhabung aller Fälle
 
 `match` ist vergleichbar mit `switch` in Java. Im Kontext mit `enum`-Ausdrücken
