@@ -1,9 +1,9 @@
 # Concurrency mit Threads
 
 Rust versteht sich als Low-Level-Programmiersprache. Ein Thread in Rust wird
-somit 1:1 auf einen Betriebssystem-Thread abgebildet. (Dies lässt sich auf
-Unix-Systemen mit `top -H` nachprüfen.) In Kombination mit einer High-Level-API
-lassen sich in Rust aber dennoch mit wenig Aufwand (und wenig
+beispielsweise 1:1 auf einen Betriebssystem-Thread abgebildet. (Dies lässt sich
+auf Unix-Systemen mit `top -H` nachprüfen.) In Kombination mit einer
+High-Level-API lassen sich in Rust aber dennoch mit wenig Aufwand (und wenig
 Code) elegent Probleme nebenläufig lösen.
 
 Ein Thread wird über die assoziierte Funktion (vgl. statische Methode) `spawn`
@@ -79,12 +79,13 @@ thread::spawn(move || {
 
 Hier wird `move` benötigt, damit der Thread auf den Counter zugreifen kann.
 Dieser bzw. dessen `Mutex` wird per `lock()` gesperrt. (Die Methode `unwrap()`
-würde eine allfällige `panic` weitergeben und dabei den Rückgabewert von
-`lock()` verwerfen, was kompakter als ein `match`-Konstrukt ist.) Nach der
+gibt den Rückgabewert von `lock()` zurück. Im Fehlerfall würde der Fehler mit
+`panic` weitergereicht. Das ist kompakter als ein `match`-Konstrukt.) Nach der
 Erhöhung des Zählers wird der `Mutex` _nicht_ explizit, sondern implizit am
 Blockende freigegeben. Aus diesem Grund wurde hier ein zusätzlicher innerer
 Block eingeschoben. Würde der Thread im gleichen Block nach der Erhöhung des
-Zählers noch weitere Arbeit ausführen, bliebe die Sperre solange erhalten.
+Zählers noch weitere Arbeit ausführen, bliebe die Sperre solange
+aufrechterhalten.
 
 Das Codebeispiel `mutex.rs` zeigt eine beispielhafte Anwendung.
 

@@ -1,5 +1,11 @@
 # Traits
-Das Konzept von Traits ist sehr ähnlich zu Interfaces in anderen Sprachen. Es gibt jedoch einige Unterschiede. Ein Trait erlaubt es gleiches Verhalten für einen bestimmten Zweck zu gruppieren. Ein Trait gibt die Funktionsignaturen vor, welche für die Nutzung implementiert werden sollen. Es besteht auch die Möglichkeit, dass ein Trait für Methoden eine Standard-Implementierung zur Verfügung stellen kann. 
+
+Das Konzept von Traits ist sehr ähnlich zu Interfaces in anderen Sprachen. Es
+gibt jedoch einige Unterschiede. Ein Trait erlaubt es, gleiches Verhalten für
+einen bestimmten Zweck zu gruppieren. Ein Trait gibt die Funktionsignaturen
+vor, welche für die Nutzung implementiert werden sollen. Es besteht auch die
+Möglichkeit, dass ein Trait für Methoden eine Standard-Implementierung zur
+Verfügung stellen kann.
 
 ```rust
 pub trait Summary {
@@ -18,7 +24,13 @@ impl Summary for Tweet {
 }
 ```
 
-Traits entfalten ihr volles Potential erst wenn man sie benutzt um bestehenden Klasse neues Verhalten azufügen. Das heisst in Rust gibt es die Möglichkeit bestehende Klassen (eigene oder aus der Standardbibliothek) für die Verwendung im eigenen Code zu erweitern. Im folgenden Beispiel wird beispielsweise der Klasse `String` aus der Standardbibliothek eine Methode hinzugefügt, welche das erste Wort des Strings zurückgiebt. Die Implementation ist sehr minimalistisch und sollte hauptsächlich die Möglichkeit veranschaulichen.
+Traits entfalten ihr volles Potential erst wenn man sie benutzt um bestehenden
+Klasse neues Verhalten anzufügen. Das heisst in Rust gibt es die Möglichkeit
+bestehende Klassen (eigene oder aus der Standardbibliothek) für die Verwendung
+im eigenen Code zu erweitern. Im folgenden Beispiel wird beispielsweise der
+Klasse `String` aus der Standardbibliothek eine Methode hinzugefügt, welche das
+erste Wort des Strings zurückgibt. Die Implementation ist sehr minimalistisch
+und sollte hauptsächlich die Möglichkeit veranschaulichen.
 
 ```rust
 pub trait FirstWord {

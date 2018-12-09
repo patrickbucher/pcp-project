@@ -3,20 +3,20 @@ Das Ownership-Konzept in Rust ist ein wenig speziell und schwer mit anderen
 Sprachen zu vergeleichen. Das Ziel des Konzeptes ist es ganz klar zu
 definieren, wer für eine Variable zuständig und wie lange eine Variable gültig
 ist. Durch des strenge Ownership-Konzept, welches durch den Compiler erzwungen
-wird, sollte es keine Problem mit Pointer geben.
+wird, sollte es keine Problem mit Pointern geben.
 
 Das Ownership-Konzept von Rust wird durch die folgenden 3 Regeln definiert:
 
-1. Jeder Wert in Rust gehört zu einer Variable, welche ihr Owner genannt wird.
+1. Jeder Wert in Rust gehört zu einer Variablen, welche ihr Owner genannt wird.
 2. Es kann zur gleichen Zeit immer nur einen Owner geben.
-3. Wenn der Owner den Scope verlässt wird der Wert gelöscht.
+3. Wenn der Owner den Scope verlässt, wird der Wert gelöscht.
 
 ## Heap vs. Stack
 Um das Ownership-Konzept zu verstehen muss jedoch zuerst der Unterschied
 zwischen Stack und Heap klar sein. Der Stack ist ein streng organisierter
-Speicherbereich mit einem schnellen Zugriff. Die Daten werden gemäss LIFO (last
-in, first out) abgelegt und es können nur Daten mit einer fixen Grösse abgelegt
-werden.
+Speicherbereich mit einem schnellen Zugriff. Die Daten werden gemäss
+LIFO-Prinzip (last in, first out) abgelegt und es können nur Daten mit einer
+fixen Grösse abgelegt werden.
 
 Der Heap dagegen kann gebraucht werden für Daten, bei denen die Grösse zum
 Kompilierungszeitpunkt noch nicht bekannt ist. Daher ist der Heap weniger stark
@@ -35,7 +35,7 @@ let y = x;
 println!("{}", y);
 ```
 
-Die folgenden Typen implementieret das Trait `Copy` und werden daher
+Die folgenden Typen implementieren das Trait `Copy` und werden daher
 automatisch bei einem Aufruf oder einer Zuweisung kopiert:
 
 - alle Integer-Datentypen, wie z.B. `u32`
@@ -46,9 +46,9 @@ automatisch bei einem Aufruf oder einer Zuweisung kopiert:
 ## Komplexere Datentypen
 Bei einem sehr ähnlichen Beispiel wie dem vorherigen verhält sich der Code
 jedoch nicht so, wie man es erwarten könnte, denn der Code lässt sich nicht
-kompilieren. Der Compiler gibt dabei folgenden Fehlermeldung zurück, welche
+kompilieren. Der Compiler gibt dabei folgende Fehlermeldung zurück, welche
 genau auf das oben angesprochene Problem hinweist. Der Owner eines `String`
-wird bei einer Zuweisung oder einem Funktionsaufruf verändert und daher ist der
+wird bei einer Zuweisung oder einem Funktionsaufruf verändert, und daher ist der
 alte Variablenname nicht mehr gültigt.
 
 ```rust

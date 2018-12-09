@@ -3,8 +3,8 @@
 Eine Rust-Installation beinhaltet folgende Werkzeuge:
 
 - `rustc`: Compiler
-- `cargo`: Package- und Build-Management
-- `rustdoc`: Erstellung von Dokumentation
+- `cargo`: Package- und Build-Management-Tool
+- `rustdoc`: Tool zur Erstellung von Dokumentation
 
 ## Voraussetzungen
 
@@ -90,7 +90,7 @@ $ pacman -S rust rust-docs
 
 ## Windows: Mittels `rustup-init`
 
-Für Windows lässt sich Rust über ein Setup-Programm installieren:
+Auf Windows lässt sich Rust über ein Setup-Programm installieren:
 
 1. `rustup-init.exe` von [win.rustup.rs](https://win.rustup.rs/) herunterladen.
 2. Das Programm ausführen und den Anweisungen folgen.

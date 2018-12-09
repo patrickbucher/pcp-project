@@ -3,7 +3,8 @@
 Viele Programmiersprachen verwenden `null`, um die Abwesenheit eines Wertes zu
 signalisieren. Das Konzept ist an sich sinnvoll, nur erlauben es die meisten
 Programmiersprachen, dass `null` (oder `nil`, oder `None`) wie ein normaler
-Wert verwendet werden kann. Dies führt zu schwerwiegenden Laufzeitfehlern.
+Wert verwendet werden kann. Dies kann zu schwerwiegenden Laufzeitfehlern
+führen.
 
 ## `Option<T>` statt `null`
 
@@ -114,7 +115,7 @@ match guess.cmp(&secret_number) {
 ## Vereinfachung mit `if`/`let`
 
 Da bei vielen Operationen nur auf eine einzige Art von Ergebnis reagiert werden
-soll, bietet Rust eine kürzeres Konstrukt für solche Fälle an. Mit `if`/`let`
+soll, bietet Rust ein kompakteres Konstrukt für solche Fälle an. Mit `if`/`let`
 kann der vorherige `match`-Ausdruck folgendermassen umgeschrieben werden:
 
 ```rust

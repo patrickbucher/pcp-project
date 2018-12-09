@@ -40,7 +40,7 @@ fn main() {
     - Firefox: 4.5M Zeilen C++
 - __2012-2014__: Einbindung der Community, Weggang von Graydon Hoare
 - __2014-2016__: Stabilisierung (Version 1.0.0), Fokus auf Libraries
-- __2016-2018__: Produktiveinsatz (Stylo, Dropbox), Servo, Redox, Version 1.31
+- __seit 2016__: Produktiveinsatz (Stylo, Dropbox), Servo, Redox, Version 1.31
 
 ## SP1: Ownership-Konzept
 ```rust
@@ -235,7 +235,7 @@ for increment in rx { // consume channel
     - gibt meistens sehr gute Fehlermeldungen aus
 - dünne Standard Library (Abhängigkeit von externen Libraries)
 - teils gewöhnungsbedürftig (Syntax, Memory-Handling)
-    - «Learning by Doing» aussichtslos
+    - systematisches Lernen statt «Learning by Doing»
 - Fortschritt durch Einschränkung: neues Memory-Paradigma
     - freischwebende Referenzen als `goto` des 21. Jahrunderts?
 
