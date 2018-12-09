@@ -3,9 +3,7 @@ use std::string::String;
 use std::thread;
 use std::time::Duration;
 
-/**
- * Semesterwoche 9, Aufgabe 3: Concurrency
- */
+/// Semesterwoche 9, Aufgabe 3: Concurrency
 fn main() {
     let long_lasting_handle: thread::JoinHandle<u64> = thread::spawn(|| {
         let millis: u64 = 3000;

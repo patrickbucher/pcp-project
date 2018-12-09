@@ -1,5 +1,5 @@
-use std::thread;
 use std::sync::{Arc, Mutex};
+use std::thread;
 use std::time::Duration;
 
 fn main() {

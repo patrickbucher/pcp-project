@@ -36,7 +36,7 @@ impl Feed {
         }
     }
 
-    pub fn add<T: Summary + 'static> (&mut self, item: T) {
+    pub fn add<T: Summary + 'static>(&mut self, item: T) {
         self.items.push(Box::new(item));
     }
 }
@@ -46,7 +46,7 @@ fn main() {
         username: String::from("@demo"),
         content: String::from("of course!"),
     };
-    
+
     let article = NewsArticle {
         headline: String::from("New subject this year!"),
         author: String::from("HSLU"),
