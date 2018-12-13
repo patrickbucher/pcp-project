@@ -4,7 +4,7 @@
 
 Rust bietet einige sehr interessante Konzepte wie zum Beispiel Ownership und
 Traits. Diese Konzepte können sehr nützlich sein, aber bringen auch den einen
-oder anderen Stolperstein mit sich. So ist es beispielsweise seht schwierig
+oder anderen Stolperstein mit sich. So ist es beispielsweise sehr schwierig
 eine Linked-List für einen Stack zu implementieren, da sich der Compiler
 ständig wegen Ownership-Problemen beschwert. 
 

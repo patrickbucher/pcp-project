@@ -1,8 +1,8 @@
 # Ausführung
 
 Die meisten Codebeispiele verwenden die `cargo`-Projektstruktur. Sie verfügen
-über eine Datei namens `Cargo.toml` und der Code liegt im Unterverzeichnis
-`src`. Ein solches Programm lässt sich beispeilsweise folgendermassen
+über eine Datei namens `Cargo.toml`, und der Code liegt im Unterverzeichnis
+`src`. Ein solches Programm lässt sich beispielsweise folgendermassen
 ausführen:
 
     $ cd guessing_game
