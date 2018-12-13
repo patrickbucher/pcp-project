@@ -1,4 +1,5 @@
-*.pdf
+paper/paper.pdf
+slides/slides.pdf
 **/target/
 Cargo.lock
 **/*.rs.bk

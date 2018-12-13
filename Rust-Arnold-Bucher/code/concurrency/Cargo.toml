@@ -1,0 +1,6 @@
+[package]
+name = "concurrency"
+version = "0.1.0"
+authors = ["Patrick Bucher <patrick.bucher@stud.hslu.ch>"]
+
+[dependencies]
