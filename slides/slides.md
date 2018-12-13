@@ -220,7 +220,8 @@ tx_copy.send(1).unwrap(); // write to channel
 drop(tx_copy); // for every copy
 drop(tx); // for the original
 
-for increment in rx { // consume channel
+// consume channel
+for increment in rx {
     counter += increment;
 }
 ```
