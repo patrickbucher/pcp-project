@@ -109,4 +109,6 @@ IDE-unabhängige Werkzeug [Rust Racer](https://github.com/racer-rust/racer) zur
 Verfügung, das bei `vim` mit dem Plugin [Vim
 Racer](https://github.com/racer-rust/vim-racer) eingebunden werden könnte.
 IntelliJ-Benutzer können die Erweiterung [IntelliJ
-Rust](https://intellij-rust.github.io/) verwenden.
+Rust](https://intellij-rust.github.io/) verwenden. Aktuelle Informationen über
+die IDE-Unterstützung von Rust erhält man auf
+[AreWeIDEyet](https://areweideyet.com/).
