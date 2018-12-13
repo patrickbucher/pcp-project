@@ -99,3 +99,14 @@ Auf Windows lässt sich Rust über ein Setup-Programm installieren:
    dauert](https://github.com/rust-lang/rustup.rs/issues/763) als auf macOS and
    Linux.
 4. Die Installation mittels `cmd.exe` oder Powershell validieren (siehe oben).
+
+## Entwicklungsumgebung
+
+Als Entwicklungsumgebung haben wir `vim` (ohne weitere Plugins) und Visual
+Studio Code mit der offiziellen Rust-Erweiterung (basierend auf dem Rust
+Language Server) verwendet. Für Code-Vervollständigung steht das
+IDE-unabhängige Werkzeug [Rust Racer](https://github.com/racer-rust/racer) zur
+Verfügung, das bei `vim` mit dem Plugin [Vim
+Racer](https://github.com/racer-rust/vim-racer) eingebunden werden könnte.
+IntelliJ-Benutzer können die Erweiterung [IntelliJ
+Rust](https://intellij-rust.github.io/) verwenden.
