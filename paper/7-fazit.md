@@ -2,7 +2,7 @@
 
 ## Technisches Team-Fazit
 
-Rust bietet einige sehr interessante Konzepte wie zum Beispiel Ownership und
+Rust bietet einige sehr interessante Konzepte, wie zum Beispiel Ownership und
 Traits. Diese Konzepte können sehr nützlich sein, aber bringen auch den einen
 oder anderen Stolperstein mit sich. So ist es beispielsweise sehr schwierig
 eine Linked-List für einen Stack zu implementieren, da sich der Compiler
@@ -15,19 +15,20 @@ Low-Level-Threads mit High-Level-APIs zu kombinieren. Nebenläufiger Code lässt
 sich effizient _und_ schön implementieren.
 
 Das gesamte Tooling für die Sprache ist sehr gut, und der Compiler ist ziemlich
-intelligent. Die Fehlermeldung des Compiler sind in der allermeisten Fällen
+intelligent. Die Fehlermeldung des Compilers sind in der allermeisten Fällen
 sehr nützlich und beschreiben das Problem sehr genau. Manchmal wird sogar ein
 Vorschlag angezeigt, wie man es machen soll. Dadurch entsteht meistens recht
 guter Code.
 
-Robert C. Martin vertritt die These, dass sich neue Programmierparadigmen
-dadurch auszeichnen, dass sie bestehende Paradigmen _einschränken_.
-(Strukturierte Programmierung: Einschränkung von Sprüngen, d.h. kein `goto`;
-Objektorientierte Programmierung: Einschränkung von Funktionszeigern;
-Funktionale Programmierung: Einschränkung von Zustandsänderungen.) Rust
-überträgt die Einschränkung von Zustandsänderungen (und Datenzugriff) auf die
-strukturierte und parallele Programmierung ‒ und eliminiert so eine ganze
-Fehlerklasse (Race Conditions).
+Robert C. Martin vertritt in seinem Buch [Clean
+Architecture](https://www.pearson.com/us/higher-education/program/Martin-Clean-Architecture-A-Craftsman-s-Guide-to-Software-Structure-and-Design/PGM333762.html)
+die These, dass sich neue Programmierparadigmen dadurch auszeichnen, dass sie
+bestehende Paradigmen _einschränken_.  (Strukturierte Programmierung:
+Einschränkung von Sprüngen, d.h. kein `goto`; Objektorientierte Programmierung:
+Einschränkung von Funktionszeigern; Funktionale Programmierung: Einschränkung
+von Zustandsänderungen.) Rust überträgt die Einschränkung von
+Zustandsänderungen (und Datenzugriff) auf die strukturierte und parallele
+Programmierung ‒ und eliminiert so eine ganze Fehlerklasse (Race Conditions).
 
 ## Persönliches Fazit Patrick
 

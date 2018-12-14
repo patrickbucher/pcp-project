@@ -33,8 +33,9 @@ gewartet werden. Diese Methode gibt sogleich den Wert zurück, der von der
 anonymen Thread-Funktion zurückgegeben wird. Dieser wird allerdings nicht
 direkt, sondern in ein `Result<T>` verpackt zurückgegeben. Ein `Result<T>` ist
 vergleichbar mit einer `Option<T>`, mit dem Unterschied, dass die Varianten
-`Ok` und `Err` heissen, und die zweite Variante einen Fehler beinhaltet. Das
-`Result` kann mittels `match` entpackt werden:
+`Ok` und `Err` heissen, und die zweite Variante einen Fehler beinhaltet.
+
+Das `Result` kann mittels `match` entpackt werden:
 
 ```rust
 match handle.join() {
@@ -126,9 +127,9 @@ for messages in rx {
 }
 ```
 
-Die Schleife läuft solange, bis alle Transmitter geschlossen sind. Dies
-geschieht explizit: in jedem Thread mit `drop(tx_copy)` bzw. im Hauptthread
-mittels `drop(tx)`.
+Die Schleife läuft solange, bis alle Transmitter geschlossen und alle
+Nachrichten auf dem Channel konsumiert sind. Dies geschieht explizit: in jedem
+Thread mit `drop(tx_copy)` bzw. im Hauptthread mittels `drop(tx)`.
 
 Das Codebeispiel `chans` implementiert das semantisch gleiche Programm wie
 das Beispiel `mutex`, verwendet dazu jedoch einen Channel anstelle eines
