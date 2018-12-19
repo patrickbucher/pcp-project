@@ -33,8 +33,8 @@ anfangen kann:
 - `-S`: show errors (nur Fehler anzeigen)
 - `-f`: fail silently (bei serverseitigen Fehlern keine  Ausgabe produzieren)
 
-Damit die Umgebungsvariablen nach der Installation aktualisiert werden kann man
-entweder eine neue Shell öffnen oder folgende Befehlszeile ausführen:
+Damit die Umgebungsvariablen nach der Installation aktualisiert werden, kann
+man entweder eine neue Shell öffnen oder die folgende Befehlszeile ausführen:
 
 ```bash
 $ source $HOME/.cargo/env
@@ -107,7 +107,7 @@ Studio Code mit der offiziellen Rust-Erweiterung (basierend auf dem Rust
 Language Server) verwendet. Für Code-Vervollständigung steht das
 IDE-unabhängige Werkzeug [Rust Racer](https://github.com/racer-rust/racer) zur
 Verfügung, das bei `vim` mit dem Plugin [Vim
-Racer](https://github.com/racer-rust/vim-racer) eingebunden werden könnte.
+Racer](https://github.com/racer-rust/vim-racer) eingebunden werden kann.
 IntelliJ-Benutzer können die Erweiterung [IntelliJ
 Rust](https://intellij-rust.github.io/) verwenden. Aktuelle Informationen über
 die IDE-Unterstützung von Rust erhält man auf

@@ -1,3 +1,8 @@
+# Setup
+
+Informationen zum Setup von `cargo` und `rustc` auf macOS, Linux und Windows
+finden sich im ersten Kapitel des Papers.
+
 # Ausführung
 
 Die meisten Codebeispiele verwenden die `cargo`-Projektstruktur. Sie verfügen

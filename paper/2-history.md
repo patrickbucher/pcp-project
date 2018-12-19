@@ -13,11 +13,12 @@ Phasen](https://www.youtube.com/watch?v=79PSagCD_AY) einteilen:
 2. 2010-2012: Mozilla nimmt Rust unter seine Obhut und lässt ein kleines Team
    um Graydon Hoare daran arbeiten. Der Firefox-Browser besteht aus ca. 4.5
    Millionen Zeilen C++-Code, und Änderungen am Code führen oft zu Fehlern.
-   Rust wird mit dem Ziel weiterentwickelt, dass der Compiler menschliche
-   Fehler möglichst verhindern soll, gerade was Memory-Management und
-   Race-Conditions bei nebenläufiger Programmierung betrifft. Das Typsystem
-   wird stark weiterentwickelt. Viele Features vom Sprachkern werden in
-   Libraries ausgelagert. Der Garbage Collector wird nicht mehr benötigt.
+   Rust wird für den Einsatz in Firefox fit gemacht und mit dem Ziel
+   weiterentwickelt, dass der Compiler menschliche Fehler möglichst verhindern
+   soll, gerade was Memory-Management und Race-Conditions bei nebenläufiger
+   Programmierung betrifft. Das Typsystem wird stark weiterentwickelt. Viele
+   Features vom Sprachkern werden in Libraries ausgelagert. Der Garbage
+   Collector wird nicht mehr benötigt.
 3. 2012-2014: Das Paketverwaltungs- und Buildwerkzeug `cargo` und die Plattform
    [Crates.io](https://crates.io/) für die Publikation von Libraries entstehen.
    Graydon Hoare verlässt Mozilla und zieht sich aus der Weiterentwicklung von

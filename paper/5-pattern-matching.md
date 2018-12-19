@@ -94,7 +94,7 @@ So wird wiederum sichergestellt, dass auf alle möglichen Ergebnisse reagiert
 wird. Das Weglassen eines Armes würde wiederum zu einem Kompilierfehler führen.
 
 Gibt es Fälle, auf die man im jeweiligen Kontext nicht reagieren möchte, kann
-man diese einfach dem _Einheitswert_ () zuordnen:
+man diesen einfach den _Einheitswert_ () zuordnen:
 
 ```rust
 match guess.cmp(&secret_number) {

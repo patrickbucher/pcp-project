@@ -78,7 +78,7 @@ bei einer Verwendung kopiert.
 
 Damit man dennoch beispielsweise einen `String` einer Methode übergeben kann,
 stellt Rust ein Konzept namens Borrowing zur Verfügung. Dabei wird einer
-Funktion nicht der Wert einer Variablen übergeben sondern eine Referenz. Auf
+Funktion nicht der Wert einer Variablen übergeben, sondern eine Referenz. Auf
 dieser Referenz können dann Operationen ausgeführt werden, aber der Owner der
 Daten bleibt weiterhin die vorherige Variable.
 
